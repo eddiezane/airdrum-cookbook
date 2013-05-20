@@ -4,5 +4,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "git"
     chef.add_recipe "nodejs::install_from_source"
+    chef.json = {
+      "nodejs" => {
+        "version" => "0.10.7"
+      }
+    }
   end
 end
